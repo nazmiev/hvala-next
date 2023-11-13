@@ -1,0 +1,64 @@
+.header {
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 92vw;
+        margin: 0 auto;
+
+        .logo {
+            span:nth-child(2) {
+                color: #02964c;
+            }
+        }
+
+        .naigation {
+            display: none;
+            @media (min-width: 1920px) {
+                display: flex;
+                gap: 2vw;
+            }
+        }
+
+        .demoButton {
+            border: 1px solid #393c49;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .switchLanguageButton {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .LoginButton {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+
+            p {
+                display: none;
+
+                @media (min-width: 500px) {
+                    display: block;
+                }
+            }
+        }
+        .burger {
+            @media (min-width: 1920px) {
+                display: none;
+            }
+        }
+    }
+
+}
