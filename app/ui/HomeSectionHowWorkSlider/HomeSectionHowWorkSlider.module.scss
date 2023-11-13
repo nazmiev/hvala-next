@@ -1,0 +1,20 @@
+.HomeSectionHowWorkSlider {
+    background-color: gray;
+
+    .carouselMobile {
+        display: none;
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    .carouselDesktop {
+        display: none;
+        @media (min-width: 768px) {
+            display: flex;
+            img {
+                width: 25%;
+            }
+        }
+    }
+}

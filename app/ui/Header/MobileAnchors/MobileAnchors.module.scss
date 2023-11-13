@@ -1,0 +1,19 @@
+.mobileAnchors {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 6vh 2vw;
+
+    svg {
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+    }
+}

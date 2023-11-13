@@ -1,6 +1,25 @@
+'use client'
+
+import { useState } from 'react'
 import styles from './header.module.scss'
+import MobileAnchors from './MobileAnchors';
+import AuthModal from './AuthModal';
 
 export default function Header() {
+    const [mobileAnchorsOpen, setMobileAnchorsOpen] = useState(false);
+    const [authModalOpen, setAuthModalOpen] = useState(false);
+    const navTabs = [
+        { href: '#how-it-works', title: 'Kako to funkcioniše' },
+        { href: '#advantages', title: 'Prednosti' },
+        { href: '#feedback-solution', title: 'Servis za žalbe' },
+        { href: '#pay-by-qr', title: 'Naručite i platite putem QR' },
+    ].map((navTab) => { return (
+        <a className={styles.anchor}
+            href={navTab.href}>
+            {navTab.title}
+        </a>
+    )})
+
     return (
         <header className={styles.header}>
             <div className={styles.container}>
@@ -10,22 +29,7 @@ export default function Header() {
                     <span>tips</span>
                 </a>
                 <nav className={styles.naigation}>
-                    <a className={styles.anchor}
-                        href="#how-it-works">
-                        Kako to funkcioniše
-                    </a>
-                    <a className={styles.anchor}
-                        href="#advantages">
-                        Prednosti
-                    </a>
-                    <a className={styles.anchor}
-                        href="#feedback-solution">
-                        Servis za žalbe
-                    </a>
-                    <a className={styles.anchor}
-                        href="#pay-by-qr">
-                        Naručite i platite putem QR
-                    </a>
+                    {navTabs}
                 </nav>
                 <a className={styles.demoButton}
                     href="demo/demo_page">
@@ -38,20 +42,28 @@ export default function Header() {
                     </svg>
                     <p>English</p>
                 </a>
-                <a className={styles.LoginButton}
-                    href="/login">
+                <button className={styles.LoginButton}
+                    onClick={() => setAuthModalOpen(!authModalOpen)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                     </svg>
                     <p>Prijavite se</p>
-                </a>
-                <svg className={styles.burger} width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </button>
+                <svg className={styles.burger} onClick={() => setMobileAnchorsOpen(!mobileAnchorsOpen)} width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="16" height="3" rx="1.5" fill="#393C49"></rect>
                     <rect y="20" width="22" height="3" rx="1.5" fill="#393C49"></rect>
                     <rect y="10" width="32" height="3" rx="1.5" fill="#393C49"></rect>
                 </svg>
             </div>
+            {mobileAnchorsOpen && (
+                <div onClick={() => setMobileAnchorsOpen(false)} className={styles.mobileAnchorsBackdrop}>
+                    <MobileAnchors />
+                </div>)}
+            {authModalOpen && (
+                <div onClick={() => setAuthModalOpen(false)} className={styles.authBackdrop}>
+                    <AuthModal />
+                </div>)}
         </header>
     )
 }

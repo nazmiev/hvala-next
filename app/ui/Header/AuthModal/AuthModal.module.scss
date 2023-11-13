@@ -1,0 +1,57 @@
+.authModal {
+    width: 606px;
+    max-width: 90%;
+    height: 300px;
+    background-color: #fff;
+    z-index: 2;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+    color: #393c49;
+
+    .sampleName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        h4 {
+            font-size: 40px;
+            font-weight: 400;
+
+            span {
+                color: #02964c;
+            }
+        }
+    }
+
+    .LoginButtons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        a {
+            height: 50px;
+            width: 231px;
+            color: white;
+            background: #02964c;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-child(2n) {
+                background: #fff;
+                border: 1px solid #393c49;
+                color: #393c49;
+            }
+        }
+    }
+}
