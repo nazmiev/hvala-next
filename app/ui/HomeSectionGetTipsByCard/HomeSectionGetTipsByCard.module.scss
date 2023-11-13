@@ -2,28 +2,28 @@
     .container {
         max-width: 1440px;
         display: grid;
-        grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-        grid-template-rows: min-content min-content;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "article image" "buttons image";
         column-gap: 10px;
         row-gap: 15px;
         font-size: 24px;
         margin-bottom: 2vh;
-
+        
         @media (max-width: 768px) {
-            grid-template-columns: minmax(300px, 1fr);
-            grid-template-rows: min-content min-content min-content;
+            grid-template-columns: 1fr;
+            grid-template-areas: "article" "image" "buttons";
         }
 
         article {
-            max-width: 475px;
+            grid-area: article;
+            max-width: 550px;
             h1 {
-                font-size: 60px;
+                font-size: calc(min(60px, 6vh));
                 font-weight: 700;
                 color: #393C49;
                 line-height: 70px;
                 margin-bottom: 26px;
                 margin-top: 26px;
-                width: 554px;
             }
 
             p {
@@ -32,13 +32,20 @@
         }
 
         .imageContainer {
-            grid-row-end: span 2;
+            grid-area: image;
+            align-self: end;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         }
 
         .buttons {
+            grid-area: buttons;
             display: flex;
             gap: 2vw;
             max-width: 475px;
+            flex-wrap: wrap;
 
             @media (max-width: 768px) {
                 flex-direction: column;
@@ -46,7 +53,8 @@
             }
 
             a {
-                flex-grow: 1;
+                flex-shrink: 0;
+                padding: 0 20px;
                 height: 50px;
                 font-size: 16px;
                 display: flex;
