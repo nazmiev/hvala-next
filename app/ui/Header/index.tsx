@@ -15,6 +15,7 @@ export default function Header() {
         { href: '#pay-by-qr', title: 'Naručite i platite putem QR' },
     ].map((navTab) => { return (
         <a className={styles.anchor}
+            key={navTab.title}
             href={navTab.href}>
             {navTab.title}
         </a>
