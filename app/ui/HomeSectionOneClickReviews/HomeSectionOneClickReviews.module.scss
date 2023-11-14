@@ -69,8 +69,13 @@
 
             .instaImageContainer {
                 grid-area: insta;
-                justify-self: end;
+                justify-self: center;
                 align-self: end;
+                
+                @media (max-width: 768px) {
+                    justify-self: end;
+
+                }
 
                 img {
                     max-width: 252px;
