@@ -1,61 +1,88 @@
 .HomeSectionOneClickReviews {
     color: #393C49;
-
+    margin-bottom: 10vh;
+    
     h2 {
         line-height: 200%;
         text-align: center;
         background-color: #F8F8F8;
     }
-
-    .iPhoneImageContainer {
-        max-width: calc(min(250px,13vw));
-        margin: calc(min(60px, 6vh)) auto;
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    .imagesContainer {
-        max-width: 1440px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "trip insta" "google insta";
-        column-gap: 10px;
-        row-gap: 15px;
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-            grid-template-areas: "article" "image" "buttons";
-        }
-
-        .googleImageContainer {
-            grid-area: google;
+    
+    .iphonebackdropContainer {
+        margin: calc(min(60px, 6vh)) 0;
+        position: relative;
+        
+        .iPhoneImageContainer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 250px;
+            z-index: -1;
+            
             img {
-                max-width: 345px;
-                width: 100%;
+                max-width: 250px;
                 height: auto;
             }
         }
+        
+        .imagesContainer {
+            margin: calc(min(60px, 6vh)) 0;
+            max-width: 1440px;
+            min-height: 370px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-template-areas: "trip . insta" "google . insta";
+            column-gap: calc(min(60px, 6vw));
+            row-gap: calc(min(60px, 6vh));
 
-        .instaImageContainer {
-            grid-area: insta;
-
-            img {
-                max-width: 252px;
-                width: 100%;
-                height: auto;
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr auto 1fr;
+                grid-template-areas: "trip . insta" "google . insta";
+                opacity: 0.9;
             }
-        }
 
-        .tripImageContainer {
-            grid-area: trip;
 
-            img {
-                max-width: 635px;
-                width: 100%;
-                height: auto;
+            .tripImageContainer {
+                grid-area: trip;
+                align-self: end;
+                justify-self: center;
+
+                img {
+                    max-width: 635px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .googleImageContainer {
+                grid-area: google;
+                justify-self: center;
+
+                img {
+                    max-width: 345px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .instaImageContainer {
+                grid-area: insta;
+                justify-self: end;
+                align-self: end;
+
+                img {
+                    max-width: 252px;
+                    width: 100%;
+                    height: auto;
+
+                    @media (max-width: 768px) {
+                        border: 5px solid #fff;
+                        border-radius: 5px;
+                        background-color: #fff;
+                    }
+                }
             }
         }
     }
