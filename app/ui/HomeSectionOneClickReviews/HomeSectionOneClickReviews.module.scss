@@ -1,0 +1,62 @@
+.HomeSectionOneClickReviews {
+    color: #393C49;
+
+    h2 {
+        line-height: 200%;
+        text-align: center;
+        background-color: #F8F8F8;
+    }
+
+    .iPhoneImageContainer {
+        max-width: calc(min(250px,13vw));
+        margin: calc(min(60px, 6vh)) auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .imagesContainer {
+        max-width: 1440px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "trip insta" "google insta";
+        column-gap: 10px;
+        row-gap: 15px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "article" "image" "buttons";
+        }
+
+        .googleImageContainer {
+            grid-area: google;
+            img {
+                max-width: 345px;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .instaImageContainer {
+            grid-area: insta;
+
+            img {
+                max-width: 252px;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .tripImageContainer {
+            grid-area: trip;
+
+            img {
+                max-width: 635px;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
